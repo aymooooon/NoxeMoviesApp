@@ -1,0 +1,27 @@
+
+
+
+body{
+
+background-color: #131722;
+color:white ;
+}
+
+.pp{
+    
+}
+.layer{
+    background-color:rgba(0, 0, 0, 0.7);
+    opacity: 0;
+
+    
+
+}
+  .layer:hover{
+
+    opacity: .7;
+    transition: 2s;
+
+}
+
+.margo{ margin-top: 4rem;}
