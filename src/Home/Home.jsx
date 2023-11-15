@@ -73,10 +73,13 @@ export default function  Home() {
 
 {tv.splice(0,10).map((tv,index)=>{
   return <div key={index} className='col-md-2   gy-5 overflow-hidden  ' >
-<div className=' position-relative  overflow-hidden pp'>
+
+
+
+    <Link to={`/Tvdet/${tv.id}`}> <div className=' position-relative  overflow-hidden pp'>
   <img src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} className='  w-100' alt="" />
 
-  <div className=' position-absolute top-0   end-0 bg-danger '> {tv.vote_average}</div>
+  <div className=' position-absolute top-0 text-white  end-0 bg-danger '> {tv.vote_average}</div>
 
 
 
@@ -85,7 +88,7 @@ export default function  Home() {
     <p>{tv.overview}</p>
      </div>
 
-</div>
+</div></Link>
 <p> {tv.name ?tv.name:"tv"}</p>
 
 
@@ -106,16 +109,16 @@ export default function  Home() {
 {people.splice(0,10).map((people,index)=>{
   return <div key={index} className='col-md-2   gy-5 overflow-hidden  ' >
 <div className=' position-relative  overflow-hidden pp'>
-  <img src={`https://image.tmdb.org/t/p/w500${people.profile_path}`} className='  w-100' alt="" />
+   <Link className=' text-decoration-none' to={`/Peopldetails/${people.id}`}>  <img src={`https://image.tmdb.org/t/p/w500${people.profile_path}`} className='  w-100' alt="" />
 
-  <div className=' position-absolute top-0   end-0 bg-danger '> {people.popularity}</div>
+  <div className=' position-absolute top-0 text-white  end-0 bg-danger '> {people.popularity}</div>
 
 
 
   <div className=' position-absolute layer  top-0 end-0 start-0 bottom-0 text-white overflow-hidden'>
     
     <p>{people.overview}</p>
-     </div>
+     </div>     </Link> 
 
 </div>
 <p> {people.name ?people.name:"people"}</p>

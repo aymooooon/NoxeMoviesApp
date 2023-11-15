@@ -6,17 +6,23 @@ import { MediaContext } from '../Context/Context';
 
 export default function Navbar(props) {
 
-
+  let {getSearch,setSearchMovie}=useContext(MediaContext)
 let navigateTo=useNavigate()
-
+let search=document.getElementById('searchbar')
 function logout(){
 localStorage.removeItem("token")
 props.setisLogin(false)
 
+
 navigateTo("/Login")
+search.value=" "
+setSearchMovie([])
+
+
+
 }
 
-let {getSearch}=useContext(MediaContext)
+
 
 
 
@@ -30,11 +36,14 @@ console.log(props.tokendata.first_name  )
 <>
 <nav className="navbar navbar-expand-sm navbar-dark  fixed-top bg-info  bg-opacity-25">
     <div className="container">
-    <NavLink className={   ({ isActive, isPending }) =>
-                      isActive? "active bg-danger  nav-link": "nav-link"
-                     
-                    }   >Noxe</NavLink>
+    <ul className='me-auto navbar-nav mt-2'>
 
+<li className="nav-item pb-1">
+    <NavLink className=" nav-link  " > { props.isLogin?  props.tokendata.first_name:""}</NavLink>
+  </li>
+
+  
+</ul>
 
 
 
@@ -97,24 +106,16 @@ console.log(props.tokendata.first_name  )
                     }  to="Movis">movis</NavLink>
         </li>
         { <li className='nav-item me-2'>
-              <input onChange={(e)=>{
-                getSearch(e.target.value)
-              }} className='form form-control ' type="text" name="" id="" />
+              <input  onChange={()=>{
+                getSearch(search.value)
+              }} className=' form-control ' type="text" name="" id="searchbar" />
 
             </li> }
         </>:""  } 
   
       </ul>
 
-      <ul className='ms-auto navbar-nav mt-2'>
 
-      <li className="nav-item">
-          <NavLink className=" nav-link" > { props.isLogin?  props.tokendata.first_name:""}</NavLink>
-        </li>
-
-        
-      </ul>
-  
     </div>
 
       {/* <input className=" " type="search" placeholder="Search" id='serchin' aria-label="Search" onKeyUp={search}></input > */}

@@ -44,7 +44,7 @@ export let MediaContext=createContext("")
               },[])
             
 
-    return <MediaContext.Provider value={{trendingmovis,trendingtv,trendingpeople,trending,getSearch,searchMovie,setSearchMovie}}>
+    return <MediaContext.Provider value={{trendingmovis,trendingtv,trendingpeople,trending,getSearch,searchMovie,setSearchMovie,setSearchMovie}}>
 
 
 
